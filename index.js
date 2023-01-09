@@ -5,10 +5,15 @@
  * !vgbhvhvbh
  */
 
+const { reaction } = require("mobx");
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const heading = React.createElement("h1", { id: "head" }, "Namaste React");
 
-const heading1 = React.createElement("h1", { id: "head1" }, "Heading 1");
-const heading2 = React.createElement("h2", { id: "head2" }, "Heading 2");
+const heading1 = React.createElement("h1", { id: "head1" }, "Heading 1-Parcel");
+const heading2 = React.createElement("h2", { id: "head2" }, "Heading 2-Parcel");
 
 /**
  * Imp -  React.createElement will have 3 parameters
