@@ -31,7 +31,7 @@ Please Note: _Write the answers and code on your own while finishing your assign
 - - add scripts for “start” and “build” with parcel commands
 - - add `.gitignore` file
 - - add `browserlists`
-- - build a production version of your code using `parcel build`
+- - build a production version of your code using `parcel build` 
 - **References**
 - [Creating your own create-react-app](https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658)
 - [Parcel Documentation](https://parceljs.org/getting-started/webapp/)
