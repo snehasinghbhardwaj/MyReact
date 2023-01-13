@@ -1,7 +1,47 @@
-#container {
-  background-color: green;
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  border: 1px solid red;
 }
 
-#head {
-  background-color: red;
+.nav-items > ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.nav-items > ul > li {
+  padding: 10px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+.card {
+  border: 1px solid red;
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.card > img {
+  width: 100%;
+}
+
+.resturant-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.card > h4 {
+  overflow-wrap: break-word;
+}
+
+.card > h5 {
+  color: white;
+  background-color: green;
+  width: 20px;
 }
