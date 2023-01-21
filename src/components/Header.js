@@ -1,9 +1,15 @@
+import LogoImg from "../assets/FoodVilla.jpg";
+import { useState } from "react";
+
+const IsLoggeedInUser = () => {
+  return false;
+};
 const Logo = () => (
   <a>
     <img
       className="logo"
       alt="logo"
-      src={require("../../Images/FoodVilla.jpg")}
+      src={LogoImg} //{require("../../Images/FoodVilla.jpg")}
     />
   </a>
 );
@@ -12,16 +18,26 @@ const Logo = () => (
  * Using CSS with div
  *
  */
+
 export const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <div className="header">
+      <Logo />
       <div className="nav-items">
         <ul>
-          <li>Contact Us</li>
-          <li>About Us</li>
+          <li>Home</li>
+          <li>Contact</li>
+          <li>About</li>
           <li>Cart</li>
         </ul>
       </div>
+      {isLoggedIn ? (
+        <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+      ) : (
+        <button onClick={() => setIsLoggedIn(true)}>Login</button>
+      )}
     </div>
   );
 };
