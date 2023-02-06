@@ -56,3 +56,7 @@
   border: 1px solid lightgrey;
   background-color: lightgrey;
 }
+
+.menu {
+  display: flex;
+}

@@ -4,6 +4,7 @@ import ResturantCard from "./ResturantCard";
 import { useState, useEffect } from "react";
 import { Test } from "../constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function filterData(searchText, resturantList) {
   return resturantList.filter((resturant) =>
@@ -12,9 +13,9 @@ function filterData(searchText, resturantList) {
 }
 
 const Body = () => {
-  const [searchText, setSearchText] = useState("");
   const [allResturants, setAllResturants] = useState([]);
   const [filteredResturants, setfilteredResturants] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   /**
    * 1.Empty dependency array  [] means means Function inside useEffect will be called just once after render.
@@ -29,8 +30,10 @@ const Body = () => {
   async function getResturantS() {
     const data = await fetch(Test);
     const json = await data.json();
+    //console.log(json.data);
     setfilteredResturants(json.data?.cards[2]?.data?.data?.cards);
     setAllResturants(json.data?.cards[2]?.data?.data?.cards);
+    //console.log(json.data?.cards[2]?.data?.data?.cards);
   }
 
   //no render component (Early return)
@@ -68,13 +71,14 @@ const Body = () => {
       <div className="resturant-list">
         {filteredResturants.map((resturanObj) => {
           return (
-            <ResturantCard
-              {...resturanObj.data}
-              key={{ ...resturanObj.data.id }}
-            />
+            <Link
+              to={"/resturant/" + resturanObj.data.id}
+              key={resturanObj.data.id}
+            >
+              <ResturantCard {...resturanObj.data} />
+            </Link>
           );
         })}
-        )
       </div>
     </>
   );

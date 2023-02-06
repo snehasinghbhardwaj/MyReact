@@ -1,9 +1,7 @@
 import LogoImg from "../assets/FoodVilla.jpg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const IsLoggeedInUser = () => {
-  return false;
-};
 const Logo = () => (
   <a>
     <img
@@ -15,8 +13,11 @@ const Logo = () => (
 );
 
 /**
- * Using CSS with div
- *
+ * * Using CSS with div
+ * * SPA - Single Page Application
+ * * Routing 2 Types - Server Side Routing & Client Side Routing (CSR)
+ * * If using <a>..</a> then it will be server side routing & it will load whole page
+ * *-----react-router-dom gives Link to provide CSR
  */
 
 export const Header = () => {
@@ -27,9 +28,15 @@ export const Header = () => {
       <Logo />
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>Contact</li>
-          <li>About</li>
+          <li>
+            <Link to="/">Home </Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
           <li>Cart</li>
         </ul>
       </div>
