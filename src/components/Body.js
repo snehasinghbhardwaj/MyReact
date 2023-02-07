@@ -1,4 +1,3 @@
-import { reaction } from "mobx";
 import { resturantList } from "../constants";
 import ResturantCard from "./ResturantCard";
 import { useState, useEffect } from "react";
