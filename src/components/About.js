@@ -29,8 +29,8 @@ class About extends React.Component {
     return (
       <div>
         <h1>About Us Page!!!</h1>
-        {/* <ProfileFunctionComponent /> */}
-        <Profile Child="Child2" />
+        <ProfileFunctionComponent />
+        {/* <Profile Child="Child2" /> */}
       </div>
     );
   }

@@ -1,25 +1,17 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { IMG_CDN_URL, RESTURANT_MENU_URL } from "../constants";
+import { IMG_CDN_URL } from "../constants";
 import Shimmer from "./Shimmer";
+import useResturant from "../../utils/useResturant";
 
 const ResturantMenu = () => {
   const { id } = useParams();
-
-  //First useEffect to get the data then useEffect to render the component
-  const [resturant, setResturant] = useState(null);
-
-  useEffect(() => {
-    getResturantInfo();
-  }, []);
-
-  async function getResturantInfo() {
-    const data = await fetch(RESTURANT_MENU_URL + id);
-    const json = await data.json();
-    //console.log(json);
-    console.log(RESTURANT_MENU_URL + id);
-    setResturant(json.data);
-  }
+  //Created Custom Hook
+  /**
+   * Segregatting code on the basis of api data fetch & display api data using Custom Hooks
+   * api data fetch will be done in below custom hook by passing resId
+   * maintaining resturant state is taken care by useResturant hook
+   */
+  const resturant = useResturant(id);
 
   return !resturant ? (
     <Shimmer />

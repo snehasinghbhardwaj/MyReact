@@ -15,9 +15,9 @@ class Profile extends React.Component {
   }
 
   async componentDidMount() {
-    this.timer = setInterval(() => {
-      console.log("setInterval from Profile Class Component");
-    }, 1000);
+    // this.timer = setInterval(() => {
+    //   console.log("setInterval from Profile Class Component");
+    // }, 1000);
     console.log(this.props.Child + "-ComponenetDidMount");
     //best place to do api call
     const data = await fetch("https://api.github.com/users/snehasinghbhardwaj");

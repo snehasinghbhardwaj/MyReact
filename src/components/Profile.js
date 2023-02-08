@@ -7,13 +7,13 @@ const Profile = (props) => {
 
   useEffect(() => {
     console.log("inside useEffct");
-    const timer = setInterval(() => {
-      console.log("settimer from usEffcet");
-    }, 1000);
+    // const timer = setInterval(() => {
+    //   console.log("settimer from usEffcet");
+    // }, 1000);
 
     //Clean up will be done in return, like below
     return () => {
-      clearInterval(timer);
+      //clearInterval(timer);
       console.log("cleanUp from useEffect");
     };
   }, []);

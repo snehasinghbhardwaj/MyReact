@@ -1,19 +1,14 @@
-import { resturantList } from "../constants";
 import ResturantCard from "./ResturantCard";
 import { useState, useEffect } from "react";
 import { Test } from "../constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-function filterData(searchText, resturantList) {
-  return resturantList.filter((resturant) =>
-    resturant.data?.name?.toLowerCase().includes(searchText.toLowerCase())
-  );
-}
+import { filterData } from "../../utils/helper";
+import useAllResturants from "../../utils/useAllResturants";
 
 const Body = () => {
-  const [allResturants, setAllResturants] = useState([]);
-  const [filteredResturants, setfilteredResturants] = useState([]);
+  // const [allResturants, setAllResturants] = useState([]);
+  // const [filteredResturants, setfilteredResturants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   /**
@@ -21,19 +16,29 @@ const Body = () => {
    *  2.Dep array [searchText] => Once after initial render + everytime after re-render (means searchText changes)
    */
 
-  useEffect(() => {
-    //API call to load resturantList
-    getResturantS();
-  }, []);
+  // useEffect(() => {
+  //   //API call to load resturantList
+  //   getResturantS();
+  // }, []);
 
-  async function getResturantS() {
-    const data = await fetch(Test);
-    const json = await data.json();
-    //console.log(json.data);
-    setfilteredResturants(json.data?.cards[2]?.data?.data?.cards);
-    setAllResturants(json.data?.cards[2]?.data?.data?.cards);
-    //console.log(json.data?.cards[2]?.data?.data?.cards);
-  }
+  // async function getResturantS() {
+  //   const data = await fetch(Test);
+  //   const json = await data.json();
+  //   //console.log(json.data);
+  //   setfilteredResturants(json.data?.cards[2]?.data?.data?.cards);
+  //   setAllResturants(json.data?.cards[2]?.data?.data?.cards);
+  //   //console.log(json.data?.cards[2]?.data?.data?.cards);
+  // }
+
+  //const allResturants = [];
+  const [allResturants, filteredResturants] = useAllResturants();
+  console.log("allResturants");
+  console.log(allResturants);
+  // console.log("filteredResturant");
+  // console.log(filteredResturant);
+
+  console.log("filteredResturants");
+  console.log(filteredResturants);
 
   //no render component (Early return)
   if (!allResturants) return null;
@@ -62,6 +67,7 @@ const Body = () => {
             const data = filterData(searchText, allResturants);
             //update the state resturant
             setfilteredResturants(data);
+            //filteredResturants = useAllResturants(data);
           }}
         >
           Search
