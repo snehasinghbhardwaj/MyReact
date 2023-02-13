@@ -16,7 +16,7 @@ const ResturantMenu = () => {
   return !resturant ? (
     <Shimmer />
   ) : (
-    <div className="menu">
+    <div className="flex">
       <div>
         <h1>{resturant.name}</h1>
         <img src={IMG_CDN_URL + resturant.cloudinaryImageId} />

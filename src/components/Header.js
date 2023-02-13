@@ -6,7 +6,7 @@ import useOnline from "../../utils/useOnline";
 const Logo = () => (
   <a>
     <img
-      className="logo"
+      className="h-34 w-36"
       alt="logo"
       src={LogoImg} //{require("../../Images/FoodVilla.jpg")}
     />
@@ -26,27 +26,28 @@ export const Header = () => {
   const isOnline = useOnline();
 
   return (
-    <div className="header">
+    <div className="flex justify-between bg-neutral-200 shadow-lg">
       <Logo />
       <div className="nav-items">
-        <ul>
-          <li>
+        <ul className="flex py-10">
+          <li className="px-2">
             <Link to="/">Home </Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="instamart">Instamart</Link>
           </li>
-          <li>Cart</li>
+          <li className="px-2">Cart</li>
         </ul>
       </div>
-
+      {/* below 2 lines are same but 1st one is better */}
       <h1>{isOnline ? "You are Online !!" : "You are Offline !!"}</h1>
+      {isOnline ? <h1>You are Online !!</h1> : <h1>You are Offline !!</h1>}
       {isLoggedIn ? (
         <button onClick={() => setIsLoggedIn(false)}>Logout</button>
       ) : (

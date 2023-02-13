@@ -17,7 +17,7 @@ const Body = () => {
    */
 
   // useEffect(() => {
-  //   //API call to load resturantList
+  ////API call to load resturantList
   //   getResturantS();
   // }, []);
 
@@ -32,10 +32,6 @@ const Body = () => {
 
   //const allResturants = [];
   const [allResturants, filteredResturants] = useAllResturants();
-  console.log("allResturants");
-  console.log(allResturants);
-  // console.log("filteredResturant");
-  // console.log(filteredResturant);
 
   console.log("filteredResturants");
   console.log(filteredResturants);
@@ -50,7 +46,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="p-5 my-5 bg-neutral-200">
         <input
           type="text"
           className="search-input"
@@ -61,19 +57,19 @@ const Body = () => {
           }}
         ></input>
         <button
-          className="search-btn"
+          className="p-2 m-2 bg-neutral-300 hover:bg-gray-500"
           onClick={(e) => {
             //need to filter data
             const data = filterData(searchText, allResturants);
             //update the state resturant
-            setfilteredResturants(data);
+            //setfilteredResturants(data);
             //filteredResturants = useAllResturants(data);
           }}
         >
           Search
         </button>
       </div>
-      <div className="resturant-list">
+      <div className="flex flex-wrap">
         {filteredResturants.map((resturanObj) => {
           return (
             <Link

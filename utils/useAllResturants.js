@@ -16,7 +16,7 @@ const useAllResturants = (data) => {
     setfilteredResturants(json.data?.cards[2]?.data?.data?.cards);
   }
   return [allResturants, filteredResturants];
-  //return { allResturants, filteredResturants };
+  //return allResturants;
 };
 
 export default useAllResturants;
